@@ -6,8 +6,8 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
-    # url(r'^$', 'costcalculator.views.home', name='home'),
-    # url(r'^costcalculator/', include('costcalculator.foo.urls')),
+    url(r'^$', 'costcalculator.apps.costmanager.views.home', name='home'),
+    url(r'^costmanager/', include('costcalculator.apps.costmanager.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

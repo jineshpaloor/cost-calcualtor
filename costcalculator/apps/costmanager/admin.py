@@ -14,8 +14,7 @@ class GroupAdmin(admin.ModelAdmin):
     fieldsets = [
         (None,               {'fields': ['name']}),
         ('Description', {'fields': ['description']}),
-        ('Members', {'fields': ['members'],
-                              'classes': ['collapse']}),
+        ('Members', {'fields': ['members']}),
     ]
     #inlines = [UserInline]
 
