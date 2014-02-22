@@ -3,9 +3,10 @@ from django.conf.urls import patterns, url #, include
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
+from costcalculator.apps.costmanager import views
 
-urlpatterns = patterns('costcalculator.apps.costmanager.views',
+urlpatterns = patterns('',
     # Examples:
-    url(r'^$', 'home', name='home'),
+    url(r'^$', views.BillListView.as_view(), name='bill-home'),
 
 )

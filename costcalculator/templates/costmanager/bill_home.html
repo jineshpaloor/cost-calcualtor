@@ -1,0 +1,22 @@
+<h3>{{ year }} - {{ month }}</h3>
+{% if group_wise_bills %}
+<h3>Group Wise Costs</h4>
+    <ul>
+    {% for bill in group_wise_bills %}
+    <li>{{ bill.group__name }} - {{ bill.tot_amt }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No Bills are available.</p>
+{% endif %}
+
+{% if user_wise_bills %}
+<h3>User Wise Costs</h4>
+    <ul>
+    {% for bill in user_wise_bills %}
+    <li>{{ bill.spend_by__username }} - {{ bill.tot_amt }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No Bills are available.</p>
+{% endif %}

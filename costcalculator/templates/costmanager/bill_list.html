@@ -1,0 +1,9 @@
+{% if bill_list %}
+    <ul>
+    {% for bill in bill_list %}
+        <li><a href="/bill/{{ bill.id }}/">{{ bill.spend_by }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No Bills are available.</p>
+{% endif %}
