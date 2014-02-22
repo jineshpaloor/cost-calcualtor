@@ -41,4 +41,4 @@ class Bill(models.Model):
     comment = models.TextField(max_length=100, null=True, blank=True)
 
     def __unicode__(self):
-        return '{0} - {1}'.format(self.spend_by.username, self.added_on)
+        return '{0} - {1} - {2}'.format(self.spend_by.username, self.category, self.amount)
