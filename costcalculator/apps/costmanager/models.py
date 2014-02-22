@@ -2,7 +2,7 @@ from django.db import models
 
 class PersonalInfo(models.Model):
     user = models.OneToOneField('auth.User')
-    mobile = models.IntegerField(blank=True)
+    mobile = models.CharField(max_length=15, blank=True)
     company = models.CharField(max_length=30, blank=True)
     location = models.CharField(max_length=30, blank=True)
 
@@ -36,9 +36,10 @@ class Bill(models.Model):
     spend_by = models.ForeignKey('auth.User')
     group = models.ForeignKey(Group)
     amount = models.DecimalField(max_digits=7, decimal_places=2)
+    spend_on = models.DateTimeField()
     added_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     comment = models.TextField(max_length=100, null=True, blank=True)
 
     def __unicode__(self):
-        return '{0} - {1} - {2}'.format(self.spend_by.username, self.category, self.amount)
+        return '{0} - {1} - {2} - {3} - {4}'.format(self.spend_by.username, self.amount, self.category, self.added_on.date(), self.comment)
