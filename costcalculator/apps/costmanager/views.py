@@ -16,8 +16,9 @@ def home(request):
     bills = Bill.objects.filter(spend_on__year=year, spend_on__month=month)
     group_wise_bills = bills.values('group__name').annotate(tot_amt=Sum('amount'))
     user_wise_bills = bills.values('spend_by__username').annotate(tot_amt=Sum('amount'))
+    gross_total = bills.aggregate(amt=Sum('amount'))['amt']
     return render_to_response('costmanager/bill_home.html',
-            {'group_wise_bills':group_wise_bills, 'user_wise_bills':user_wise_bills, 'year':year, 'month':month},
+            {'group_wise_bills':group_wise_bills, 'user_wise_bills':user_wise_bills, 'year':year, 'month':month, 'gross_total':gross_total},
             context_instance=RequestContext(request))
 
 class BillListView(generic.ListView):
