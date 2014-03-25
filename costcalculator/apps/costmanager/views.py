@@ -1,11 +1,12 @@
 import datetime
 
 from django.shortcuts import render_to_response
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect#, HttpResponse
 from django.db.models import Sum
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 from django.template import RequestContext
+from django.views.generic.base import TemplateView
 from django.views import generic
 
 # Create your views here.
@@ -13,6 +14,15 @@ from costcalculator.apps.costmanager.models import Bill, MonthlyUserBill
 
 
 def home(request):
+    return render_to_response('costmanager/landing_page.html',
+            {}, context_instance=RequestContext(request))
+
+class HomePageView(TemplateView):
+
+    template_name = 'costmanager/landing_page.html'
+
+
+def bill_summary(request):
     d = datetime.date.today()
     year, month = d.year, d.month
     bills = Bill.objects.filter(spend_on__year=year, spend_on__month=month)
@@ -42,4 +52,4 @@ def generate_bill(request):
     month = 02
     for user in users:
         MonthlyUserBill.objects.generate_bill(user, year, month)
-    return HttpResponseRedirect(reverse('bill-home'))
+    return HttpResponseRedirect(reverse('billing-home'))

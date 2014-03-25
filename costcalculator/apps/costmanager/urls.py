@@ -7,7 +7,7 @@ from costcalculator.apps.costmanager import views
 
 urlpatterns = patterns('',
     # Examples:
-    url(r'^$', views.BillListView.as_view(), name='bill-home'),
+    url(r'^$', views.bill_summary, name='billing-home'),
     url(r'^generate_bill/$', views.generate_bill, name='generate-bill'),
 
 )
