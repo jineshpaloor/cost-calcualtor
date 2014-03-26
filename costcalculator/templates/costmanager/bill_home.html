@@ -2,49 +2,9 @@
 
 {% block container %}
 <h3>{{ year }} - {{ month }}</h3>
-{% if group_wise_bills %}
-<h3>Group Wise Costs</h4>
-    <ul>
-    {% for bill in group_wise_bills %}
-    <li>{{ bill.group__name }} - {{ bill.tot_amt }}</li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No Bills are available.</p>
-{% endif %}
 
-{% if user_wise_bills %}
-<h3>User Wise Costs</h4>
-    <ul>
-    {% for bill in user_wise_bills %}
-    <li>{{ bill.spend_by__username }} - {{ bill.tot_amt }}</li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No Bills are available.</p>
-{% endif %}
+{% include "costmanager/user_wise_bill.html" %}
+{% include "costmanager/group_wise_bill.html" %}
+{% include "costmanager/monthly_bill.html" %}
 
-<h4>Gross Total: {{ gross_total }}</h4>
-
-<a href="{% url 'generate-bill' %}">Generate Bill</a>
-
-<h3>Monthly Bills</h3>
-<table class="table table-bordered">
-    <tr>
-        <th> User</th>
-        <th> Total Amount</th>
-        <th> Amount Spend</th>
-        <th> Amount to Pay</th>
-        <th> Billing Date</th>
-    </tr>
-    {% for bill in user_bills %}
-    <tr>
-        <td>{{ bill.user.username }}</td>
-        <td>{{ bill.total_amount }}</td>
-        <td>{{ bill.amount_spend }}</td>
-        <td>{{ bill.amount_to_pay }}</td>
-        <td>{{ bill.billing_date }}</td>
-    </tr>
-    {% endfor %}
-</table>
 {% endblock %}

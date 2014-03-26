@@ -8,6 +8,6 @@ from costcalculator.apps.costmanager import views
 urlpatterns = patterns('',
     # Examples:
     url(r'^$', views.bill_summary, name='billing-home'),
-    url(r'^generate_bill/$', views.generate_bill, name='generate-bill'),
+    url(r'^generate_bill/$', views.generate_monthly_bill, name='generate-monthly-bill'),
 
 )

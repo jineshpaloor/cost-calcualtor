@@ -1,0 +1,19 @@
+<h3>Monthly Bills</h3>
+<table class="table table-bordered">
+    <tr>
+        <th> User</th>
+        <th> Total Amount</th>
+        <th> Amount Spend</th>
+        <th> Amount to Pay</th>
+        <th> Billing Date</th>
+    </tr>
+    {% for bill in user_bills %}
+    <tr>
+        <td>{{ bill.user.username }}</td>
+        <td>{{ bill.total_amount }}</td>
+        <td>{{ bill.amount_spend }}</td>
+        <td>{{ bill.amount_to_pay }}</td>
+        <td>{{ bill.billing_date }}</td>
+    </tr>
+    {% endfor %}
+</table>
