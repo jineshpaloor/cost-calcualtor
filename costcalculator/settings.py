@@ -111,10 +111,21 @@ ROOT_URLCONF = 'costcalculator.urls'
 WSGI_APPLICATION = 'costcalculator.wsgi.application'
 
 TEMPLATE_DIRS = (
+    os.path.join(BASE_DIR, 'templates'),
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    os.path.join(BASE_DIR, 'templates'),
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.contrib.auth.context_processors.auth",
+    "django.core.context_processors.debug",
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.media",
+    "django.core.context_processors.static",
+    "django.core.context_processors.tz",
+    "django.contrib.messages.context_processors.messages",
+    "costcalculator.apps.costmanager.context_processors.bill_form",
 )
 
 INSTALLED_APPS = (
@@ -128,8 +139,11 @@ INSTALLED_APPS = (
      'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
-    'south',
+    'costcalculator.apps.accounts',
     'costcalculator.apps.costmanager',
+    'costcalculator.apps.reports',
+    'south',
+    'crispy_forms',
 )
 
 # A sample logging configuration. The only tangible logging
