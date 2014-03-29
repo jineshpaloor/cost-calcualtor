@@ -127,7 +127,6 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.static",
     "django.core.context_processors.tz",
     "django.contrib.messages.context_processors.messages",
-    "costcalculator.apps.costmanager.context_processors.bill_form",
 )
 
 INSTALLED_APPS = (
