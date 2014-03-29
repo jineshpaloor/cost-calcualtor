@@ -1,7 +1,11 @@
 #from django.shortcuts import render
-from django.http import HttpResponse
+# from django.http import HttpResponse
+from django.views.generic.base import TemplateView
 
 # Create your views here.
 
-def reports_home(request):
-    return HttpResponse('reports home')
+class ReportHomePageView(TemplateView):
+
+    template_name = 'costmanager/landing_page.html'
+
+

@@ -27,12 +27,14 @@ a:hover {
 html,
 body {
   height: 100%;
-  background-color: #333; /*#123EAF;*/
+   /*background-color: #333;#123EAF;*/
+  /* background-color: #428bca; */
+  background-color: #d9534f;
 }
 body {
-  color: #fff;
-  text-align: center;
-  text-shadow: 0 1px 3px rgba(0,0,0,.5);
+  /* color: #fff; */
+  /* text-align: center; */
+  /* text-shadow: 0 1px 3px rgba(0,0,0,.5); */
   /*box-shadow: inset 0 0 100px rgba(0,0,0,.5);*/
 }
 
@@ -136,16 +138,21 @@ body {
     position: fixed;
     top: 0;
   }
+  .mastextrahead {
+    position: fixed;
+    top: 80;
+  }
   .mastfoot {
     position: fixed;
     bottom: 0;
   }
   /* Start the vertical centering */
   .site-wrapper-inner {
-    vertical-align: middle;
+    /*vertical-align: middle;*/
   }
   /* Handle the widths */
   .masthead,
+  .mastextrahead,
   .mastfoot,
   .cover-container {
     width: 100%; /* Must be percentage or pixels for horizontal alignment */
@@ -154,6 +161,7 @@ body {
 
 @media (min-width: 992px) {
   .masthead,
+  .mastextrahead,
   .mastfoot,
   .cover-container {
     width: 700px;

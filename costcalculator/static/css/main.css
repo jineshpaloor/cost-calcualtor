@@ -49,3 +49,7 @@ a.nounderline
     margin-bottom: 15px;
     padding: 4px 9px;
 }
+
+.margin-vertical-25 {
+    margin: 25px auto;
+}

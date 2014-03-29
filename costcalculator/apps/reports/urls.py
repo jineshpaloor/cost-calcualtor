@@ -7,5 +7,5 @@ from costcalculator.apps.reports import views
 
 urlpatterns = patterns('',
     # Examples:
-    url(r'^$', views.reports_home, name='reports-home'),
+    url(r'^$', views.ReportHomePageView.as_view(), name='reports-home'),
 )

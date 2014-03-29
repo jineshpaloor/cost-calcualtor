@@ -3,4 +3,6 @@
 <form class="form-horizontal" method="POST" action={% url 'generate-monthly-bill' %}>
         {% csrf_token %}
         {{ monthly_bill_form|crispy }}
-  </form>
+        <input class="btn btn-large btn-primary" type="submit" name="submit" value='Generate Bill' />
+</form>
+
