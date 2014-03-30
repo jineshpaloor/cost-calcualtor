@@ -43,7 +43,7 @@ class BillingHomeView(ListView):
         context['group_wise_bills'] = bills.values('group__name').annotate(tot_amt=Sum('amount'))
         context['user_wise_bills'] = bills.values('spend_by__username').annotate(tot_amt=Sum('amount'))
         context['gross_total'] = bills.aggregate(amt=Sum('amount'))['amt']
-        context['user_bills'] = MonthlyUserBill.objects.filter(billing_date__year=year, billing_date__month=month)
+        context['user_bills'] = MonthlyUserBill.objects.all()
         context['bill_form'] = BillForm()
         context['monthly_bill_form'] = MonthlyBillingForm()
         return context
